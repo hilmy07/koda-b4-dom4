@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chess Board - Grid Version</title>
+  </head>
+  <body>
+    <script>
+      // ===== Title =====
+      const heading = document.createElement("h1");
+      heading.innerText = "♟ Chess Board Game";
+      heading.style.textAlign = "center";
+      heading.style.marginTop = "30px";
+      heading.style.fontFamily = "Arial, sans-serif";
+
+      const desc = document.createElement("p");
+      desc.innerText = "This chess board uses CSS Grid built with JavaScript.";
+      desc.style.textAlign = "center";
+      desc.style.fontFamily = "Arial, sans-serif";
+      desc.style.marginBottom = "30px";
+
+      // ===== Chess Board (Grid Version) =====
+      const board = document.createElement("div");
+      board.style.display = "grid";
+      board.style.gridTemplateColumns = "repeat(8, 100px)";
+      board.style.gridTemplateRows = "repeat(8, 100px)";
+      board.style.width = "800px";
+      board.style.border = "2px solid black";
+      board.style.margin = "0 auto";
+      board.style.boxShadow = "0 0 15px rgba(0, 0, 0, 0.2)";
+      board.style.padding = "5px";
+      board.style.borderRadius = "10px";
+
+      // ===== Create Squares =====
+      for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+          const square = document.createElement("div");
+          const isWhite = (row + col) % 2 === 0;
+          square.style.backgroundColor = isWhite ? "white" : "black";
+          square.style.width = "100px";
+          square.style.height = "100px";
+          square.style.borderRadius = "5px";
+          board.appendChild(square);
+        }
+      }
+
+      // ===== Append to Body =====
+      document.body.appendChild(heading);
+      document.body.appendChild(desc);
+      document.body.appendChild(board);
+    </script>
+  </body>
+</html>
